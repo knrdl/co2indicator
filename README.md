@@ -52,7 +52,9 @@ Check measurements: `curl localhost:8080`
 
 ```shell
 docker run -it --rm --restart=unless-stopped \
-      --device /dev/serial0 --device /sys/class/gpio --device /sys/devices/platform/soc/3f200000.gpio \
+      --device /dev/serial0 \
+      --volume /sys/class/gpio:/sys/class/gpio \
+      --volume /sys/devices/platform/soc/3f200000.gpio:/sys/devices/platform/soc/3f200000.gpio \
       ghcr.io/knrdl/co2indicator:edge \
       --led-pin.green=23 --led-pin.yellow=27 --led-pin.red=22
 ```
