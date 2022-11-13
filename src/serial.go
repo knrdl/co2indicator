@@ -26,13 +26,11 @@ func openSerialPort(deviceName string) (*Serial, error) {
 
 	var bauds uint32 = unix.B9600
 
-	var cflagToUse uint32 = unix.CREAD | unix.CLOCAL | bauds | unix.CS8 /*8 data bits*/
-
 	fd := f.Fd()
 
 	t := unix.Termios{
 		Iflag:  unix.IGNPAR,
-		Cflag:  cflagToUse,
+		Cflag:  unix.CREAD | unix.CLOCAL | bauds | unix.CS8, /*8 data bits*/
 		Ispeed: bauds,
 		Ospeed: bauds,
 	}

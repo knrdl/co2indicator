@@ -12,3 +12,11 @@
 
 TODO
 
+
+### Cross Compile for Raspi
+
+```shell
+GOOS=linux GOARCH=arm GOARM=7  go build
+scp app pi@raspberrypi:/home/pi
+ssh pi@raspberrypi '/home/pi/app --server :8080 --led-pin-green=23 --led-pin-yellow=27 --led-pin-red=22'
+```

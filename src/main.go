@@ -35,10 +35,10 @@ func updateMeasurement(serial *Serial) {
 
 func main() {
 	deviceName := flag.String("device-name", "/dev/serial0", "serial device name of the sensor")
-	serverBind := flag.String("server", "false", "start webserver and bind to address (e.g. :8080)")
-	ledPinGreen := flag.Uint("led-pin-green", 0, "GPIO Pin of the green LED")
-	ledPinYellow := flag.Uint("led-pin-yellow", 0, "GPIO Pin of the yellow LED")
-	ledPinRed := flag.Uint("led-pin-red", 0, "GPIO Pin of the red LED")
+	serverBind := flag.String("server", "false", "start webserver and bind to address, e.g. ':8080'")
+	ledPinGreen := flag.Uint("led-pin.green", 0, "GPIO Pin of the green LED")
+	ledPinYellow := flag.Uint("led-pin.yellow", 0, "GPIO Pin of the yellow LED")
+	ledPinRed := flag.Uint("led-pin.red", 0, "GPIO Pin of the red LED")
 	flag.Parse()
 
 	serial, err := openSerialPort(*deviceName)
