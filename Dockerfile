@@ -12,4 +12,4 @@ EXPOSE 8080/tcp
 
 COPY --from=builder /co2indicator /co2indicator
 
-CMD ["/co2indicator", "--server", ":8080"]
+ENTRYPOINT ["/co2indicator", "--server", ":8080"]
