@@ -11,6 +11,7 @@ func startWebserver(bind string) {
 		latestMeasurement.Lock()
 		j, _ := json.Marshal(&latestMeasurement.value)
 		latestMeasurement.Unlock()
+		w.Header().Set("Content-Type", "application/json")
 		w.Write(j)
 	})
 	log.Printf("Webserver is running on %v\n", bind)
