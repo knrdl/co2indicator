@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip"
-    directory: "/"
+  - package-ecosystem: "gomod"
+    directory: "/src"
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker"
